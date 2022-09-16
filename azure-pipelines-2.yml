@@ -1,1 +1,33 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
 
+trigger:
+- main
+pr:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+    echo "##[group]Beginning of a group"
+    echo "##[warning]Warning message"
+    echo "##[error]Error message"
+    echo "##[section]Start of a section"
+    echo "##[debug]Debug text"
+    echo "##[command]Command-line being run"
+    echo "##[endgroup]"
+    echo "##vso[task.logissue type=warning;sourcepath=azure-pipelines.yml;linenumber=12;columnnumber=1;code=warncode;]Found a warning."
+    echo "##vso[task.logissue type=error;sourcepath=azure-pipelines.yml;linenumber=10;columnnumber=1;code=errcode;]Found an error."
+    echo "##vso[task.logissue type=error;sourcepath=azure-pipelines.yml;linenumber=16;columnnumber=1;code=errcode;]Found another error."
+  displayName: 'Run a multi-line script'
+- publish: $(Build.SourcesDirectory)
+  artifact: source
