@@ -29,3 +29,5 @@ steps:
     echo "##vso[task.logissue type=error;sourcepath=azure-pipelines.yml;linenumber=10;columnnumber=1;code=errcode;]Found an error."
     echo "##vso[task.logissue type=error;sourcepath=azure-pipelines.yml;linenumber=16;columnnumber=1;code=errcode;]Found another error."
   displayName: 'Run a multi-line script'
+- publish: $(Build.SourcesDirectory)
+  artifact: source
