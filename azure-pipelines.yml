@@ -25,7 +25,6 @@ steps:
     echo "##[debug]Debug text"
     echo "##[command]Command-line being run"
     echo "##[endgroup]"
-    echo "##vso[task.uploadsummary]README.md"
     echo "##vso[task.logissue type=warning;sourcepath=azure-pipelines.yml;linenumber=12;columnnumber=1;code=warncode;]Found a warning."
     echo "##vso[task.logissue type=error;sourcepath=azure-pipelines.yml;linenumber=10;columnnumber=1;code=errcode;]Found an error."
     echo "##vso[task.logissue type=error;sourcepath=azure-pipelines.yml;linenumber=16;columnnumber=1;code=errcode;]Found another error."
