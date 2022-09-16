@@ -5,6 +5,8 @@
 
 trigger:
 - main
+pr:
+- main
 
 pool:
   vmImage: ubuntu-latest
@@ -16,4 +18,13 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
+    echo "##[group]Beginning of a group"
+    echo "##[warning]Warning message"
+    echo "##[error]Error message"
+    echo "##[section]Start of a section"
+    echo "##[debug]Debug text"
+    echo "##[command]Command-line being run"
+    echo "##[endgroup]"
+    echo "##vso[task.logissue type=error]Something went very wrong."
+    echo "##vso[task.logissue type=warning;sourcepath=azure-pipelines.yml;linenumber=10;columnnumber=1;code=100;]Found something that could be a problem."
   displayName: 'Run a multi-line script'
